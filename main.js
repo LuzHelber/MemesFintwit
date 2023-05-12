@@ -6,6 +6,7 @@ function tocaSom(idElementoAudio, idBotao) {
   
   if (audioAtual) {
     audioAtual.pause();
+
    // audioAtual.currentTime =0;
    // audioAtual.removeAttribute('src');
   }
