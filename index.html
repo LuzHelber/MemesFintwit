@@ -17,7 +17,7 @@
 
 </head>
 <body>
-    <div>
+    <div class="container__principal">
         <h1 class="titulo-principal">Memes Fintwit</h1>
 
         <section class="videos">
@@ -65,10 +65,11 @@
 
             <audio src="sounds/maximo.wav" id="som_tecla_maximo"></audio>
 
-            <a href="sounds/maximo.wav" download>
+           <!-- <a href="sounds/maximo.wav" download>
             <audio src="sounds/maximo.wav" id="som_tecla_maximo"></audio>
             <span>Download Máximo</span>
             </a>
+            -->
             <audio src="sounds/pesado.wav" id="som_tecla_pesado"></audio>
             <audio src="sounds/doce.wav" id="som_tecla_doce"></audio>
             <audio src="sounds/FazoL.wav" id="som_tecla_fazol"></audio>
@@ -94,8 +95,10 @@
 
         </section>
 
+    <div class="container__botao">
+        <button class="compartilhar-zap" onclick="window.location.href='whatsapp://send?text='+encodeURIComponent(location.href)" type="button">Compartilhar no WhatsApp</button>
+    </div>    
 
-       <button class="compartilhar-zap" onclick="window.location.href='whatsapp://send?text='+encodeURIComponent(location.href)" type="button">Compartilhar no WhatsApp</button>
     </div>
 
     <footer>
