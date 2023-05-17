@@ -1,29 +1,26 @@
-
 let audioAtual;
+
 function tocaSom(idElementoAudio, idBotao) {
+  const audioElemento = document.querySelector(idElementoAudio);
 
-    // Pausa o áudio anterior, se existir
-  
-  if (audioAtual) {
+  if (audioAtual && audioAtual !== audioElemento) {
     audioAtual.pause();
-
-   // audioAtual.currentTime =0;
-   // audioAtual.removeAttribute('src');
   }
 
-  const audioElemento = document.querySelector(idElementoAudio);
-  audioElemento.play();
+  if (audioAtual === audioElemento && !audioElemento.paused) {
+    audioElemento.pause();
+  } else {
+    audioElemento.play();
+  }
 
-  // Atualiza a referência para o áudio em reprodução
   audioAtual = audioElemento;
 
   audioElemento.addEventListener("timeupdate", function() {
-  
     const elementoBotao = document.getElementById(idBotao);
     const duracaoTotal = audioElemento.duration;
     const tempoAtual = audioElemento.currentTime;
     const porcentagemCompleta = (tempoAtual / duracaoTotal) * 100;
- 
+
     elementoBotao.style.backgroundImage = "linear-gradient(to right, #97DEFF " + audioElemento.currentTime / audioElemento.duration * 100 + "%, #C9EEFF " + audioElemento.currentTime / audioElemento.duration * 100 + "%)";
   });
 }
@@ -35,9 +32,14 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
   const instrumento = tecla.classList[1];
   const idBotao = listaDeTeclas[contador].id;
   const idAudio = `#som_${instrumento}`;
-  
+
   tecla.onclick = function() {
     tocaSom(idAudio, idBotao);
     console.log(idBotao)
   };
 }
+
+
+
+
+
